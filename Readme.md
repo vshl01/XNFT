@@ -33,14 +33,14 @@ There are **two faces** to the app:
 │   User Dashboard  (browse / buy / sell / stats)                          │
 │   Admin Dashboard (password → mint / list / delete)                      │
 └───────────────┬────────────────────────────────────────┬─────────────────┘
-                │ REST + WebSocket                          │
-                ▼                                            ▼
+                │ REST + WebSocket                       │
+                ▼                                        ▼
 ┌──────────────────────────── BACKEND (Rust / Axum) ───────────────────────┐
 │  API Gateway  →  Auth  ·  NFT/Market  ·  Admin  ·  Pricing               │
 │  Indexer  (Solana → Postgres)        Event Producers (emit events)       │
 └───────┬───────────────┬───────────────────────────┬──────────────────────┘
-        │               │                            │ emit events
-        ▼               ▼                            ▼
+        │               │                           │ emit events
+        ▼               ▼                           ▼
    ┌─────────┐    ┌──────────┐            ┌────────────────────────┐
    │Postgres │    │  Redis   │            │   EVENT BUS (Kafka)    │
    │ (truth  │    │ cache +  │            │  user.logged_in        │
