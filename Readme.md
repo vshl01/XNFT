@@ -482,6 +482,4 @@ Use a **request interceptor** to attach the JWT automatically on admin calls.
 5. **Polish + verify** — seed demo players, run mint → buy → update → resell end-to-end. README + whiteboard diagram.
 
 **✅ Must-have:** mint, buy/sell, dynamic stats, then-vs-now, admin CRUD, wallet connect, login + purchase emails.
-**⏭️ Mention but don't build:** compressed NFTs, decentralized oracle, royalties, real stats license, SMS/push.
-
-> **Golden rule:** one player, end-to-end, polished — beats fifty half-working. Interviewers reward _depth + clear explanation_ over feature count.
+**⏭️ More context needed:** compressed NFTs, decentralized oracle, royalties, real stats license, SMS/push.
