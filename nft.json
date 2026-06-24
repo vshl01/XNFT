@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "nftName": "Moneky King",
+  "symbol": "MKG",
+  "description": "Moneky King",
+  "image": "https://ichef.bbci.co.uk/news/480/cpsprodpb/DBB7/production/_122074265_hi071843849.jpg.webp",
+  "player": {
+    "name": "The Monkey King",
+    "nationality": "Bogendar",
+    "position": "Defender",
+    "jerseyNumber": 7,
+    "dateOfBirth": "2026-06-04"
+  },
+  "socials": {
+    "twitter": "@vshl01_",
+    "instagram": "@viishall.01",
+    "website": "https://vshl01.netlify.app"
+  },
+  "economics": {
+    "initialPrice": 9.09,
+    "totalSupply": 1,
+    "royaltyBps": 975
+  },
+  "attributes": []
+}
