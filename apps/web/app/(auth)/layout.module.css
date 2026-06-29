@@ -1,0 +1,6 @@
+.shell {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: 1.5rem;
+}
