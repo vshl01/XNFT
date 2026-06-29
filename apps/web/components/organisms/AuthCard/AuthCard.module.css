@@ -1,0 +1,66 @@
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2.25rem;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  font-size: 0.9rem;
+  color: var(--accent-contrast);
+  background: var(--gradient);
+  border-radius: 8px;
+}
+
+.brandName {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  font-size: 0.9rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin-top: 0.4rem;
+  font-size: 0.925rem;
+  color: var(--text-muted);
+}
+
+.body {
+  margin-top: 1.75rem;
+}
+
+.footer {
+  margin-top: 1.75rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.link {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
