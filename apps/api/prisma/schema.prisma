@@ -1,5 +1,4 @@
 // Prisma schema for the XNFT backend.
-// Auth-only for now; NFT / marketplace models will be added in later phases.
 
 generator client {
   provider = "prisma-client-js"
@@ -41,4 +40,36 @@ model Session {
 
   @@index([userId])
   @@map("sessions")
+}
+
+enum NftStatus {
+  LISTED
+  SOLD
+  DELISTED
+}
+
+/// A minted NFT — a local mirror of on-chain state for fast reads. The chain is
+/// the source of truth; this row is what the marketplace UI lists. `metadata`
+/// holds the canonical xNFT metadata (see @repo/types `NftMetadata`).
+model Nft {
+  id          String    @id @default(uuid()) @db.Uuid
+  /// On-chain mint address (base58) — the NFT's unique identity.
+  mintAddress String    @unique @map("mint_address")
+  name        String
+  symbol      String?
+  image       String
+  /// URL of the off-chain Metaplex JSON this api serves (the on-chain `uri`).
+  metadataUri String    @map("metadata_uri")
+  /// Full canonical metadata captured at mint time.
+  metadata    Json
+  /// Listed price in lamports, stored as text to avoid BigInt JSON issues.
+  priceLamports String  @map("price_lamports")
+  status      NftStatus @default(LISTED)
+  /// Mint transaction signature, set once the on-chain tx confirms.
+  txSignature String?   @map("tx_signature")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@map("nfts")
 }
