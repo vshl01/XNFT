@@ -69,19 +69,23 @@ export const nftMetadataSchema = z.object({
     dateOfBirth: optText(10), // ISO yyyy-mm-dd
   }),
 
-  // ── Social accounts ───────────────────────────────────────────────────
-  socials: z.object({
-    twitter: optText(60),
-    instagram: optText(60),
-    website: optUrl,
-  }),
+  // ── Social accounts (whole group optional) ────────────────────────────
+  socials: z
+    .object({
+      twitter: optText(60),
+      instagram: optText(60),
+      website: optUrl,
+    })
+    .default({}),
 
   // ── Initial economics (frozen snapshot at mint) ───────────────────────
-  economics: z.object({
-    initialPrice: optNonNeg, // in SOL (or chosen unit)
-    totalSupply: optInt(1, 1_000_000),
-    royaltyBps: optInt(0, 10_000), // basis points, 500 = 5%
-  }),
+  economics: z
+    .object({
+      initialPrice: optNonNeg, // in SOL (or chosen unit)
+      totalSupply: optInt(1, 1_000_000),
+      royaltyBps: optInt(0, 10_000), // basis points, 500 = 5%
+    })
+    .default({}),
 
   // ── Arbitrary on-chain traits ─────────────────────────────────────────
   attributes: z.array(nftAttributeSchema).max(20).default([]),
