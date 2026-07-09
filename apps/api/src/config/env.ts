@@ -27,6 +27,17 @@ const envSchema = z.object({
     .string()
     .default("false")
     .transform((value) => value === "true"),
+
+  // ─── Solana / on-chain ────────────────────────────────────────────────
+  SOLANA_RPC_URL: z.string().url().default("https://api.devnet.solana.com"),
+  // The deployed marketplace program id (matches the contract's declare_id!).
+  PROGRAM_ID: z.string().default("Gbd3BXqzgMW5xMHp3LEER1SfHaAQ2Kgu7wb16efHaTso"),
+  // Admin wallet — signs mint/initialize/update on-chain. Optional at boot;
+  // the Solana service validates them when an on-chain action is invoked.
+  PUB_KEY: z.string().optional(),
+  PVT_KEY: z.string().optional(),
+  // Public base URL of THIS api, used to build the on-chain metadata `uri`.
+  API_PUBLIC_URL: z.string().url().default("http://localhost:4000"),
 });
 
 const parsed = envSchema.safeParse(process.env);

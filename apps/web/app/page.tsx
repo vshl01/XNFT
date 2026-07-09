@@ -15,9 +15,14 @@ export default function Home() {
         <span className={styles.brand}>
           <span className={styles.mark}>✦</span> XNFT
         </span>
-        <Link href={authed ? "/dashboard" : "/login"}>
-          <Button variant="ghost">{authed ? "Dashboard" : "Sign in"}</Button>
-        </Link>
+        <div className={styles.ctas}>
+          <Link href="/market">
+            <Button variant="ghost">Marketplace</Button>
+          </Link>
+          <Link href={authed ? "/dashboard" : "/login"}>
+            <Button variant="ghost">{authed ? "Dashboard" : "Sign in"}</Button>
+          </Link>
+        </div>
       </nav>
 
       <section className={styles.hero}>
